@@ -10,7 +10,7 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
   const init = () => {
-    axios.get('https://scandiweb-products.herokuapp.com/api/').then((res) => {
+    axios.get('www.scandiweb-products.herokuapp.com/api/').then((res) => {
       if (res.error) {
         console.log(res.error);
       } else {
@@ -34,7 +34,7 @@ const ProductList = () => {
   //=========API: deleting Cards from db and UI 
   const handleMassDelete = () => {
     // console.log(selectedProducts);
-    axios.delete('https://scandiweb-products.herokuapp.com/api/delete', { data: { skus: selectedProducts } })
+    axios.delete('www.scandiweb-products.herokuapp.com/api/delete', { data: { skus: selectedProducts } })
       .then(response => {
         setProducts((products) =>
           products.filter((product) => !selectedProducts.includes(product.sku))
