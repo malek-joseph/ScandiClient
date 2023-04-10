@@ -12,7 +12,8 @@ const ProductList = () => {
   const init = () => {
     axios.get('https://scandiweb-products.herokuapp.com/api/').then((res) => {
       if (res.error) {
-        console.log(res.error);
+
+        console.log("error initializing app", res.error);
       } else {
         setProducts(res.data);
       }
