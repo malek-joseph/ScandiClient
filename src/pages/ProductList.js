@@ -105,7 +105,7 @@ const ProductList = () => {
               <button type="submit" className="btn btn-primary me-2">ADD</button>
             </NavLink>
             <button type="button" id='delete-product-btn' className="btn btn-danger"
-              disabled={selectedProducts.length === 0}
+              
               onClick={handleMassDelete}  >MASS DELETE</button>
           </div>
         </div>
