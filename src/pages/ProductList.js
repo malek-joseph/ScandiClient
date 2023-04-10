@@ -10,7 +10,7 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
   const init = () => {
-console.log('Hello');
+console.log('Hell');
     axios.get('https://scandiweb-products.herokuapp.com/api/').then((res) => {
       if (res.error) {
         console.log(res.error);
