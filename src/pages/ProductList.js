@@ -49,7 +49,7 @@ console.log('Hell');
   }
   //=========Card  UI
   const Card = ({ sku, name, price, size, weight, dimensions, isChecked }) => {
-    // console.log(dimensions);
+    console.log(dimensions);
 
     return (
       <div className="card">
