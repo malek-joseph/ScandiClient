@@ -102,11 +102,11 @@ const ProductList = () => {
         <div className="col-6 d-flex justify-content-end align-items-center">
           <div className="form-group">
             <NavLink to="/add-product">
-              <button type="submit" className="btn btn-primary me-2">Add</button>
+              <button type="submit" className="btn btn-primary me-2">ADD</button>
             </NavLink>
             <button type="button" id='delete-product-btn' className="btn btn-danger"
               disabled={selectedProducts.length === 0}
-              onClick={handleMassDelete}  >Mass Delete</button>
+              onClick={handleMassDelete}  >MASS DELETE</button>
           </div>
         </div>
       </div>
