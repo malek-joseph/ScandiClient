@@ -10,11 +10,13 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
   const init = () => {
-    axios.get('https://scandiweb-products.herokuapp.com/api/').then((res) => {
-      if (res.error) {
 
+    axios.get('https://scandiweb-products.herokuapp.com/api/').then((res) => {
+    // axios.get('https://localhost:8002/api/').then((res) => {
+      if (res.error) {
         console.log("error initializing app", res.error);
       } else {
+        console.log('received products res:', res.data);
         setProducts(res.data);
       }
     });
@@ -22,7 +24,6 @@ const ProductList = () => {
   useEffect(() => {
     init()
   }, [])
-
   const handleProductSelection = (sku) => {
     setSelectedProducts((selectedProducts) => {
       if (selectedProducts.includes(sku)) {
@@ -34,8 +35,9 @@ const ProductList = () => {
   };
   //=========API: deleting Cards from db and UI 
   const handleMassDelete = () => {
-    // console.log(selectedProducts);
+    console.log(selectedProducts);
     axios.delete('https://scandiweb-products.herokuapp.com/api/delete', { data: { skus: selectedProducts } })
+    // axios.delete('https://localhost:8002/api/delete', { data: { skus: selectedProducts } })
       .then(response => {
         setProducts((products) =>
           products.filter((product) => !selectedProducts.includes(product.sku))

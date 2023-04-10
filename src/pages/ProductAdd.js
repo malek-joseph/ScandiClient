@@ -102,7 +102,9 @@ const AddProductForm = () => {
 
     let dimensions = product.height ? `${product.height}*${product.width}*${product.length}` : 0;
 
-    axios.post('https://scandiweb-products.herokuapp.com/api/add-product', { sku: product.sku, name: product.name, price: product.price, size: product.size || 0, weight: product.weight || 0, dimensions: dimensions || 0 })
+    axios.post('https://scandiweb-products.herokuapp.com/api/add-product',
+    // axios.post('https://localhost:8002/api/add-product',
+      { sku: product.sku, name: product.name, price: product.price, size: product.size || 0, weight: product.weight || 0, dimensions: dimensions || 0 })
       .then((res) => {
         setErrors({
           sku: false,
