@@ -12,7 +12,6 @@ const ProductList = () => {
   const init = () => {
 
     axios.get('https://scandiweb-products.herokuapp.com/api/').then((res) => {
-    // axios.get('https://localhost:8002/api/').then((res) => {
       if (res.error) {
         console.log(res.error);
       } else {
@@ -23,6 +22,8 @@ const ProductList = () => {
   useEffect(() => {
     init()
   }, [])
+
+
   const handleProductSelection = (sku) => {
     setSelectedProducts((selectedProducts) => {
       if (selectedProducts.includes(sku)) {
@@ -36,7 +37,6 @@ const ProductList = () => {
   const handleMassDelete = () => {
     console.log(selectedProducts);
     axios.delete('https://scandiweb-products.herokuapp.com/api/delete', { data: { skus: selectedProducts } })
-    // axios.delete('https://localhost:8002/api/delete', { data: { skus: selectedProducts } })
       .then(response => {
         setProducts((products) =>
           products.filter((product) => !selectedProducts.includes(product.sku))
@@ -91,8 +91,9 @@ const ProductList = () => {
     return <div className="card-row">{renderCards()}</div>;
   };
   return (
-    <div className="container my-4 " style = {{ paddingBottom: '20%' }
-}>
+    <div className="container my-4 " style={{ paddingBottom: '20%' }
+    }>
+
       {/* ======Header===== */}
       <div className="row sticky-top p-3">
         <div className="col-6">
